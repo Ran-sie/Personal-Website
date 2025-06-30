@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Shield Maiden 3d Character</title>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+    <style>
+
+        body {
+            background-color: white;
+            font-family: 'MedievalSharp', cursive;
+        }
+
+        .nav_bar {
+            position: fixed;
+            top: 10px;
+            width: 100%;
+            height: 100px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: flex-start;
+            z-index: 100;
+        }
+
+            .nav_bar h1 a {
+                display: inline-table;
+                color: black;
+                font-size: 40px;
+                text-decoration: none;
+                transition: transform 0.3s ease, color 0.3s ease;
+            }
+
+
+                .nav_bar h1 a:hover {
+                    color: gold;
+                    transform: scale(1.1) rotate(-2deg) translateY(-2px);
+                    text-shadow: 0 0 8px white, 0 0 16px gold;
+                }
+
+                .box{             
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    flex-direction: column;
+                    gap: 5px;
+                    z-index: 100;
+                }
+
+                    .box h1 {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 250px;
+                        height: 50px;
+                        border: 2px solid gold;
+                        border-radius: 10px;
+                        position: relative;
+                        top: 100px;
+                        margin: 50px;
+                        background: radial-gradient(#00ffff, #0094ff);
+                        z-index: 100;
+                    }
+
+        .boxicon {
+            width: 250px;
+            height: 150px;
+            border: 2px solid gold;
+            border-radius: 10px;
+            position: relative;
+            top: 0px;
+            margin: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: radial-gradient(#00ffff, #0094ff);
+            z-index: 100;
+        }
+
+                .box-icon {
+                    position: relative;
+                    top: 0px;
+                    margin: 10px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: row;
+                    gap: 20px;
+                }
+
+                .box-icon img{
+                    width: 50px;
+                }
+
+        button {
+            width: 250px;
+            height: 50px;
+            border: 2px solid gold;
+            border-radius: 10px;
+            position: absolute;
+            bottom: 80px;
+            margin: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: radial-gradient(#00ffff, #0094ff);
+            font-family: 'MedievalSharp', cursive;
+            font-size: 24px;
+            transition: transform .3s ease-in-out;
+            cursor: pointer;
+            z-index: 100;
+        }
+            button:hover {
+                transform: scale(1.5);
+                box-shadow: 0 2px 2px black;
+            }
+
+        .view {
+            width: 250px;
+            height: 50px;
+            border: 2px solid gold;
+            border-radius: 10px;
+            position: absolute;
+            top: 80%;
+            left: 35%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(#00ffff, #0094ff);
+            font-family: 'MedievalSharp', cursive;
+            font-size: 24px;
+            cursor: pointer;
+            transition: transform .3s ease-in-out;
+            z-index: 100;
+        }
+
+        .view:hover {
+            transform: scale(1.5);
+            box-shadow: 0 2px 2px black;
+        }
+
+        .hidden{
+            display: none;
+        }
+
+        .left {
+            width: 280px;
+            height: 300px;
+            border: 2px solid gold;
+            border-radius: 10px;
+            position: absolute;
+            bottom: 120px;
+            left: 950px;
+            margin: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: radial-gradient(#00ffff, #0094ff);
+            z-index: 100;
+        }
+
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: radial-gradient(white, gray);
+            z-index: 0;
+            cursor: grab;
+        }
+
+        canvas:active{
+            cursor: grabbing;
+        }
+
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .loading-text {
+            font-size: 30px;
+            margin-bottom: 10px;
+            -webkit-text-stroke: .5px gold;
+        }
+
+
+        .progress-bar {
+            width: 300px;
+            height: 20px;
+            background: gray;
+            border-radius: 5px;
+            border: 2px white solid;
+            overflow: hidden;
+            margin: 0 auto 15px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: #4cff00;
+            transition: width .3s ease-in;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loading-screen">
+        <div class="loading-wrap">
+            <div class="loading-text">Loading Character....</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <div id="progress-count">0%</div>
+        </div>
+    </div>
+
+    <nav class="nav_bar">
+        <h1><a href="index.html#home">Home</a></h1>
+        <h1><a href="index.html#art_d">3d Artwork</a></h1>
+        <h1><a href="index.html#website_s">Website</a></h1>
+        <h1><a href="index.html#about">About</a></h1>
+        <h1><a href="index.html#contact">Contact</a></h1>
+    </nav>
+
+    <div class="box">
+        <h1>Shield maiden</h1>
+        <p></p>
+        <div class="boxicon">
+            <h3>Created by:</h3>
+            <div class="box-icon">
+                <img src="image/blender.png" />
+                <img src="image/p.png" />
+            </div>
+        </div>
+    </div>
+
+    <div class="left">
+        <h1>About the Model</h1>
+        <p>Polygons - 11,988</p>
+        <p>Vertices - 12,642</p>
+        <p>Model Format</p>
+        <p>OBJ, FBX, STL</p>
+    </div>
+
+    <button onclick="window.open('https://www.cgtrader.com/3d-models/character/fantasy-character/shield-maiden-female-character-fantasy-3d-model', '_blank')">Buy in Cgtrade</button>
+
+    <button id="front" class="view" onclick="toggleOffOrbitControls()">View in Front</button>
+
+    <button id="threeD" class="view" onclick="toggleOrbitControls()">View in 3d</button>
+
+    <canvas id="bg"></canvas>
+
+    <script src="js/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fflate@0.7.4/umd/index.min.js"></script>
+    <script src="js/OrbitControls.js"></script>
+    <script src="js/FBXLoader.js"></script>
+    <script src="js/GLTFLoader.js"></script>
+    <script src="Shield_Maiden.js"></script>
+
+</body>
+</html>

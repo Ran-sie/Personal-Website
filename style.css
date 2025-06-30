@@ -1,0 +1,268 @@
+body {
+    margin: 0;
+    background: radial-gradient(circle, #E6E6FA, #D8BFD8);
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    font-family: 'MedievalSharp', cursive;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+.nav_bar {
+    position: fixed;
+    top: 10px;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    z-index: 1000;
+}
+
+.nav_bar h1 a {
+    display: inline-table;
+    color: black;
+    font-size: 40px;
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+
+    .nav_bar h1 a:hover {
+        color: gold;
+        transform: scale(1.1) rotate(-2deg) translateY(-2px);
+        text-shadow: 0 0 8px white, 0 0 16px gold;
+    }
+
+    .nav_bar h1 a.active {
+        color: gold;
+        transform: scale(1.1) rotate(-2deg) translateY(-2px);
+        text-shadow: 0 0 8px white, 0 0 16px gold;
+    }
+
+    .Hi p {
+        display: flex;
+        color: white;
+        -webkit-text-stroke: 2px black;
+        position: absolute;
+        top: 25%;
+        left: 10%;
+        font-size: 65px;
+    }
+
+#loading-screen {
+    position: fixed;
+    top: 80px;
+    left: 380px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.loading-text {
+    font-size: 30px;
+    margin-bottom: 10px;
+    -webkit-text-stroke: .5px gold;
+}
+
+
+.progress-bar {
+    width: 300px;
+    height: 20px;
+    background: gray;
+    border-radius: 5px;
+    border: 2px white solid;
+    overflow: hidden;
+    margin: 0 auto 15px;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #4cff00;
+    transition: width .3s ease-in;
+}
+
+section{
+    min-height: 100vh;
+    padding: 60px 20px;
+    box-sizing: border-box;
+}
+
+#home canvas{
+    display: block;
+}
+
+
+#art_d {
+    background: radial-gradient(circle, #E0FFFF, #AFEEEE);
+}
+
+.art-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin: 40px auto;
+    max-width: 800px;
+}
+
+.art-item {
+    width: 200px;
+    height: 220px;
+    border: 2px solid white;
+    border-radius: 10px;
+    background: gray;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    transition: transform .3s ease-in-out;
+}
+
+    .art-item:hover {
+        transform: scale(1.1) rotate(5deg) translateY(-20px);
+        box-shadow: 0 0 20px gold;
+    }
+
+    .art-item img {
+        margin: 10px;
+        width: 90%;
+        height: 75%;
+        border-radius: 10px;
+    }
+
+    .art-item p{
+        line-height: 0px;
+        color: white;
+    }
+
+#website_s {
+    background: radial-gradient(circle, #FFFACD, #F0E68C);
+}
+
+#about {
+    background: radial-gradient(circle at top left, #e8d9f0, #c8a2c8);
+}
+
+h1{
+   text-align: center;
+}
+
+.a{
+    text-align: center;
+    font-size: 35px;
+    -webkit-text-stroke: .5px gold;
+}
+
+.tool-img{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+   
+
+.skill-item{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+}
+
+.tool-img img {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    margin: 2px;
+    border: 1px solid white;
+    border-radius: 5px;
+    background: gray;
+}
+
+#contact {
+    background: radial-gradient(circle, #E6E6FA, #D8BFD8);
+    z-index: 100;
+}
+
+.contact-h1{    
+    position: relative;
+    top: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-text-stroke: .1px gold;
+    font-size: 50px;
+}
+
+.icon-box{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 50px;
+}
+
+.icon a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 100px;
+}
+
+.icon a img{
+    width: 50px;
+    height: 30%;
+}
+
+.icon a p{
+    position: relative;
+    top: 80%;
+    color: black;
+    text-align: center;
+}
+
+.parent{
+    position: relative;
+    top: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.commission {
+    display: flex;
+    width: 150px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 2px solid white;
+    background: radial-gradient(#e8d9f0, #0094ff);
+    font-size: 20px;
+    font-family: 'MedievalSharp', cursive;
+    cursor: pointer;
+    transition: transform .5s ease-in-out;
+}
+
+.commission:hover{
+    transform: scale(2);
+    box-shadow: 0 5px 5px black;
+}
+
+canvas {
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    z-index: 1;
+}
